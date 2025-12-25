@@ -6,99 +6,90 @@
 <title>屋上サウナ SORA｜宮古島初 大型サウナ専門施設</title>
 
 <style>
-/* ===== ベース ===== */
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #333;
-  line-height: 1.8;
+  color: #222;
+  line-height: 1.9;
+  background: #fff;
 }
 section {
-  padding: 80px 20px;
   max-width: 1100px;
   margin: auto;
+  padding: 90px 20px;
+}
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
 h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 p {
   font-size: 1.05rem;
+  color: #444;
 }
 
-/* ===== ヒーロー ===== */
+/* HERO */
 .hero {
   height: 100vh;
-  background: url("images/hero.jpg") center/cover no-repeat;
-  position: relative;
-  color: #fff;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
-.hero-inner {
-  position: relative;
-  height: 100%;
+  background: linear-gradient(
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.6)
+    ),
+    url("images/hero.jpg") center/cover no-repeat;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  animation: fadeHero 2s ease forwards;
 }
 .hero h1 {
-  font-size: 3.2rem;
-  margin: 0;
+  font-size: 3rem;
 }
 .hero p {
-  font-size: 1.4rem;
-  margin-top: 15px;
+  margin-top: 20px;
+  font-size: 1.2rem;
 }
 
-/* ===== ボタン ===== */
+/* BUTTON */
 .btn {
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 34px;
-  background: #fff;
+  margin-top: 40px;
+  padding: 14px 36px;
+  border: 1px solid #000;
   color: #000;
   text-decoration: none;
-  font-weight: bold;
   border-radius: 30px;
-  transition: all 0.3s ease;
+  transition: 0.4s ease;
 }
 .btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  background: #000;
+  color: #fff;
 }
 
-/* ===== フェードアップ ===== */
-.fade-up {
+/* FADE */
+.fade {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease;
+  transform: translateY(30px);
+  transition: 1.2s ease;
 }
-.fade-up.show {
+.fade.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== 特徴 ===== */
+/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 30px;
+  gap: 40px;
 }
 .feature {
-  background: #f7f7f7;
-  padding: 30px;
-  border-radius: 14px;
+  padding-top: 10px;
 }
 
-/* ===== ギャラリー ===== */
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -106,82 +97,70 @@ p {
 }
 .gallery img {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
-/* ===== フッター ===== */
+/* FOOTER */
 footer {
-  background: #111;
-  color: #eee;
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  background: #f6f6f6;
+  font-size: 0.95rem;
 }
 
-/* ===== アニメーション ===== */
-@keyframes fadeHero {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== レスポンシブ ===== */
+/* RESPONSIVE */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.4rem; }
-  .hero p { font-size: 1.1rem; }
+  .hero h1 { font-size: 2.2rem; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ヒーロー -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
+  <div>
     <h1>屋上サウナ SORA</h1>
-    <p>空に一番近い場所で、<br>誰にも邪魔されない“ととのい”を。</p>
+    <p>空と熱だけが、そこにある。</p>
     <a class="btn" href="https://line.me/R/ti/p/@625kiiob" target="_blank">LINEで予約</a>
   </div>
 </section>
 
-<!-- コンセプト -->
-<section class="fade-up">
+<!-- CONCEPT -->
+<section class="fade">
   <h2>宮古島初の大型サウナ専門施設</h2>
   <p>
-    宮古島の空と風を感じる屋上に誕生。<br>
-    全4ブース・完全貸切のバレルサウナで、<br>
-    自分たちだけの特別な“ととのい時間”を。
+    宮古島の空に最も近い屋上に誕生した、<br>
+    全4ブース・完全貸切のバレルサウナ。<br><br>
+    静けさと熱、そして風。<br>
+    誰にも邪魔されない“ととのい”を。
   </p>
 </section>
 
-<!-- 特徴 -->
-<section class="fade-up">
+<!-- FEATURES -->
+<section class="fade">
   <div class="features">
     <div class="feature">
-      <h3>🔥 バレルサウナ4台</h3>
-      <p>本格バレルサウナを4台設置。</p>
+      <h3>全4ブース 完全貸切</h3>
+      <p>プライベートな空間で、自由に整う。</p>
     </div>
     <div class="feature">
-      <h3>🧖‍♂️ 全4ブース貸切</h3>
-      <p>完全プライベートで楽しめます。</p>
+      <h3>バレルサウナ4台設置</h3>
+      <p>木の香りと熱を感じる本格仕様。</p>
     </div>
     <div class="feature">
-      <h3>🌴 屋上×宮古島</h3>
-      <p>空・風・景色を感じる開放感。</p>
+      <h3>屋上 × 宮古島</h3>
+      <p>空と風に包まれる開放的な外気浴。</p>
     </div>
     <div class="feature">
-      <h3>💧 設備完備</h3>
+      <h3>設備完備</h3>
       <p>水風呂・シャワー・更衣室あり。</p>
     </div>
   </div>
 </section>
 
-<!-- ギャラリー -->
-<section class="fade-up">
+<!-- GALLERY -->
+<section class="fade">
   <h2>Gallery</h2>
   <div class="gallery">
     <img src="images/sauna1.jpg" alt="バレルサウナ">
@@ -190,28 +169,40 @@ footer {
   </div>
 </section>
 
-<!-- フッター -->
+<!-- ACCESS -->
+<section class="fade">
+  <h2>Access</h2>
+  <p>
+    沖縄県宮古島市平良西里251-1<br>
+    Dライフビル6階
+  </p>
+  <p>
+    <a href="https://maps.app.goo.gl/PuFFUUMQuvFudake6" target="_blank">
+      Googleマップを見る
+    </a>
+  </p>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>📍 沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
   <p>📞 080-4364-7533</p>
   <p>
-    <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank" style="color:#fff;">
+    <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank">
       Instagram
     </a>
   </p>
 </footer>
 
-<!-- スクロール演出 -->
 <script>
-const targets = document.querySelectorAll('.fade-up');
+const fades = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.classList.add('show');
     }
   });
 });
-targets.forEach(t => observer.observe(t));
+fades.forEach(f => observer.observe(f));
 </script>
 
 </body>
