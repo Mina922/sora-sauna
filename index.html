@@ -3,188 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>屋上サウナ SORA｜宮古島 屋上サウナ</title>
+<title>屋上サウナ SORA｜宮古島初 大型サウナ専門施設</title>
 
 <style>
+/* ===== ベース ===== */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   color: #333;
-  line-height: 1.7;
+  line-height: 1.8;
 }
-a { text-decoration: none; }
-
 section {
-  padding: 70px 20px;
+  padding: 80px 20px;
   max-width: 1100px;
   margin: auto;
 }
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 1.05rem;
+}
 
-/* HERO（青空） */
+/* ===== ヒーロー ===== */
 .hero {
-  background: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9") center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 140px 20px;
-}
-.hero h1 { font-size: 42px; margin-bottom: 10px; }
-.hero p { font-size: 18px; margin-bottom: 30px; }
-
-.buttons a {
-  display: inline-block;
-  margin: 8px;
-  padding: 14px 28px;
-  border-radius: 30px;
+  height: 100vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
+  position: relative;
   color: #fff;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+.hero-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeHero 2s ease forwards;
+}
+.hero h1 {
+  font-size: 3.2rem;
+  margin: 0;
+}
+.hero p {
+  font-size: 1.4rem;
+  margin-top: 15px;
+}
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 34px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
   font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease;
 }
-.buttons .line { background: #06C755; }
-.buttons .insta { background: rgba(0,0,0,0.7); }
-
-#countdown {
-  margin-top: 25px;
-  font-size: 22px;
-  font-weight: bold;
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* SUNSET */
-.sunset {
-  background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat;
-  color: white;
+/* ===== フェードアップ ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
 }
-.sunset .box {
-  background: rgba(0,0,0,0.55);
-  padding: 40px;
-  border-radius: 14px;
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* SAUNA */
+/* ===== 特徴 ===== */
 .features {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+}
+.feature {
+  background: #f7f7f7;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+/* ===== ギャラリー ===== */
+.gallery {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 25px;
+  gap: 20px;
 }
-.card {
-  background: #f4f4f4;
-  border-radius: 14px;
-  padding: 25px;
-}
-
-/* PRICE */
-.price img {
-  max-width: 100%;
-  border-radius: 14px;
+.gallery img {
+  width: 100%;
+  border-radius: 16px;
 }
 
-/* FOOTER */
+/* ===== フッター ===== */
 footer {
   background: #111;
-  color: #fff;
+  color: #eee;
   text-align: center;
   padding: 40px 20px;
 }
-footer a { color: #fff; }
+
+/* ===== アニメーション ===== */
+@keyframes fadeHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.4rem; }
+  .hero p { font-size: 1.1rem; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>屋上サウナ SORA</h1>
-  <p>空に近い屋上で、ととのう。</p>
-
-  <div class="buttons">
-    <a class="line" href="https://line.me/R/ti/p/@625kiiob" target="_blank">LINEで予約</a>
-    <a class="insta" href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank">Instagram</a>
-  </div>
-
-  <div id="countdown"></div>
-</div>
-
-<!-- CONCEPT -->
-<section class="sunset">
-  <div class="box">
-    <h2>CONCEPT</h2>
-    <p>
-      屋上という特別な場所で、<br>
-      空と風、夕焼けを感じながら楽しむサウナ。<br><br>
-      観光の合間にも、日常のリフレッシュにも。<br>
-      誰でも気軽に「ととのう」ための場所です。
-    </p>
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>屋上サウナ SORA</h1>
+    <p>空に一番近い場所で、<br>誰にも邪魔されない“ととのい”を。</p>
+    <a class="btn" href="https://line.me/R/ti/p/@625kiiob" target="_blank">LINEで予約</a>
   </div>
 </section>
 
-<!-- SAUNA -->
-<section>
-  <h2 style="text-align:center;">SAUNA</h2>
-  <div class="features">
-    <div class="card">
-      <h3>バレルサウナ</h3>
-      <p>木の香りに包まれる、本格バレルサウナ。</p>
-    </div>
-    <div class="card">
-      <h3>屋上外気浴</h3>
-      <p>宮古島の空と風を全身で感じる、ととのい時間。</p>
-    </div>
-    <div class="card">
-      <h3>クールダウン</h3>
-      <p>水風呂・シャワー完備。</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRICE -->
-<section class="price" style="text-align:center;">
-  <h2>PRICE</h2>
-  <img src="https://dummyimage.com/900x1200/f2efe9/333&text=PRICE+IMAGE" alt="料金表">
-  <p style="margin-top:10px;">※ 実際の料金表画像に差し替え可能</p>
-</section>
-
-<!-- ACCESS -->
-<section style="text-align:center;">
-  <h2>ACCESS</h2>
-  <iframe
-    src="https://www.google.com/maps?q=沖縄県宮古島市平良西里251-1%20Dライフビル6階&output=embed"
-    width="100%" height="360"
-    style="border:0;border-radius:14px;"
-    loading="lazy">
-  </iframe>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p><strong>屋上サウナ SORA</strong></p>
+<!-- コンセプト -->
+<section class="fade-up">
+  <h2>宮古島初の大型サウナ専門施設</h2>
   <p>
-    〒906-0012<br>
-    沖縄県宮古島市平良西里251-1 Dライフビル6階
+    宮古島の空と風を感じる屋上に誕生。<br>
+    全4ブース・完全貸切のバレルサウナで、<br>
+    自分たちだけの特別な“ととのい時間”を。
   </p>
+</section>
+
+<!-- 特徴 -->
+<section class="fade-up">
+  <div class="features">
+    <div class="feature">
+      <h3>🔥 バレルサウナ4台</h3>
+      <p>本格バレルサウナを4台設置。</p>
+    </div>
+    <div class="feature">
+      <h3>🧖‍♂️ 全4ブース貸切</h3>
+      <p>完全プライベートで楽しめます。</p>
+    </div>
+    <div class="feature">
+      <h3>🌴 屋上×宮古島</h3>
+      <p>空・風・景色を感じる開放感。</p>
+    </div>
+    <div class="feature">
+      <h3>💧 設備完備</h3>
+      <p>水風呂・シャワー・更衣室あり。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ギャラリー -->
+<section class="fade-up">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="images/sauna1.jpg" alt="バレルサウナ">
+    <img src="images/sauna2.jpg" alt="屋上サウナ">
+    <img src="images/sauna3.jpg" alt="外気浴">
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <p>📍 沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
+  <p>📞 080-4364-7533</p>
   <p>
-    TEL：<a href="tel:08043647533">080-4364-7533</a>
+    <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank" style="color:#fff;">
+      Instagram
+    </a>
   </p>
 </footer>
 
-<!-- COUNTDOWN -->
+<!-- スクロール演出 -->
 <script>
-const openDate = new Date("2026-02-12T10:00:00+09:00").getTime();
-const timer = setInterval(() => {
-  const now = new Date().getTime();
-  const diff = openDate - now;
-
-  if (diff <= 0) {
-    document.getElementById("countdown").innerHTML = "本日オープン！";
-    clearInterval(timer);
-    return;
-  }
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("countdown").innerHTML =
-    `OPENまで あと ${d}日 ${h}時間 ${m}分 ${s}秒`;
-}, 1000);
+const targets = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+targets.forEach(t => observer.observe(t));
 </script>
 
 </body>
