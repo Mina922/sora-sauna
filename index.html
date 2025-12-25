@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>屋上サウナ SORA | 宮古島の屋上サウナ専門施設</title>
-<meta name="description" content="宮古島初の大型屋上サウナ専門施設『屋上サウナSORA』。4ブースのプライベート空間で最高のリラックスタイムを。予約はLINEで簡単！" />
-<meta name="keywords" content="宮古島,サウナ,屋上サウナ,SORA,プライベートサウナ,バレルサウナ" />
+<title>屋上サウナ SORA | 宮古島のプライベート屋上サウナ</title>
+<meta name="description" content="宮古島の屋上にある貸切サウナ施設。4ブースのプライベート空間でゆったりと自然を感じながらととのう贅沢体験を。" />
+<meta name="keywords" content="宮古島,サウナ,屋上サウナ,SORA,バレルサウナ,プライベートサウナ" />
 <meta name="author" content="屋上サウナ SORA" />
 
 <!-- Google Fonts -->
@@ -23,7 +23,6 @@
     font-family: 'Noto Sans JP', sans-serif;
     background: linear-gradient(180deg, #f7f1e1 0%, #cbb67f 100%);
     color: #4a3621;
-    line-height: 1.6;
     overflow-x: hidden;
   }
   a {
@@ -35,17 +34,30 @@
     color: #4a3621;
   }
 
-  /* Header */
+  /* Header & video bg */
   header {
     position: relative;
-    height: 85vh;
-    background: url('https://images.unsplash.com/photo-1564419328692-0a3cc1d43223?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #f4e9dc;
     text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.5);
   }
   header::after {
     content: "";
@@ -59,24 +71,24 @@
     z-index: 2;
   }
   header h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     font-weight: 900;
+    letter-spacing: 0.12em;
     margin-bottom: 0.3em;
-    letter-spacing: 0.1em;
     animation: fadeInDown 1.2s ease forwards;
   }
   header p.subtitle {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1em;
     animation: fadeInUp 1.2s ease forwards;
     animation-delay: 0.5s;
   }
   #countdown {
-    font-size: 1.5rem;
-    background: rgba(124, 87, 30, 0.7);
-    padding: 15px 35px;
-    border-radius: 40px;
+    font-size: 1.8rem;
+    background: rgba(124, 87, 30, 0.75);
+    padding: 16px 40px;
+    border-radius: 50px;
     font-weight: 700;
     letter-spacing: 0.05em;
     animation: fadeInUp 1.2s ease forwards;
@@ -91,14 +103,14 @@
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 12px 0;
     z-index: 10;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
   }
   nav a {
-    margin: 0 20px;
+    margin: 0 24px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #4a3621;
   }
   nav a:hover {
@@ -107,15 +119,15 @@
 
   main {
     max-width: 960px;
-    margin: 0 auto 80px;
-    padding: 100px 20px 20px;
+    margin: 0 auto 120px;
+    padding: 110px 20px 20px;
   }
 
   section {
-    margin-bottom: 80px;
+    margin-bottom: 90px;
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
   }
   section.visible {
     opacity: 1;
@@ -123,70 +135,70 @@
   }
   section h2 {
     font-size: 2.8rem;
-    border-bottom: 4px solid #a57a32;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    border-bottom: 5px solid #a57a32;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
     color: #5e3d1f;
     font-weight: 900;
   }
   section p, section ul {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #5a4327;
   }
   section ul {
-    margin-left: 1.2em;
+    margin-left: 1.3em;
     list-style-type: disc;
   }
   section ul li {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   /* Buttons */
   .btn-group {
-    margin-top: 10px;
+    margin-top: 15px;
   }
   .btn {
     display: inline-block;
     background: linear-gradient(145deg, #7f5824, #a57a32);
     color: #f4e9dc;
-    padding: 14px 36px;
-    font-weight: 800;
-    font-size: 1.15rem;
-    border-radius: 40px;
-    box-shadow: 3px 3px 6px #6e4c13, -3px -3px 6px #b99747;
-    margin-right: 20px;
+    padding: 16px 42px;
+    font-weight: 900;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    box-shadow: 3px 3px 9px #6e4c13, -3px -3px 9px #b99747;
+    margin-right: 24px;
     cursor: pointer;
     transition: background 0.4s ease, box-shadow 0.4s ease;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
     border: none;
     user-select: none;
   }
   .btn:hover {
     background: linear-gradient(145deg, #a57a32, #7f5824);
-    box-shadow: 1px 1px 12px #cdb961;
+    box-shadow: 1px 1px 15px #cdb961;
   }
 
   /* Gallery */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 25px;
+    gap: 28px;
   }
   .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(101, 72, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(101, 72, 20, 0.35);
     cursor: pointer;
-    transition: transform 0.35s ease;
+    transition: transform 0.4s ease;
   }
   .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
     z-index: 5;
   }
   .gallery-item img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     display: block;
   }
@@ -194,11 +206,11 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: rgba(127, 88, 36, 0.85);
+    background: rgba(127, 88, 36, 0.88);
     color: #f4e9dc;
-    font-weight: 700;
-    font-size: 1.2rem;
-    padding: 14px 20px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    padding: 16px 22px;
     text-align: center;
     user-select: none;
   }
@@ -208,22 +220,22 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
-    z-index: 50;
+    z-index: 60;
   }
   #modal img {
     max-width: 90vw;
     max-height: 90vh;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
   }
-  #modal.close-btn {
+  #modal-close {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
+    top: 18px;
+    right: 26px;
+    font-size: 2.8rem;
     color: white;
     cursor: pointer;
     user-select: none;
@@ -232,10 +244,10 @@
   /* Access Section */
   #map {
     width: 100%;
-    height: 350px;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(101, 72, 20, 0.4);
-    margin-top: 15px;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(101, 72, 20, 0.45);
+    margin-top: 22px;
   }
 
   /* Footer */
@@ -243,13 +255,13 @@
     background: #7f5824;
     color: #f4e9dc;
     text-align: center;
-    padding: 40px 20px;
-    font-size: 1rem;
+    padding: 48px 20px;
+    font-size: 1.1rem;
     font-weight: 700;
     user-select: none;
   }
   footer p {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
 
   /* Animations */
@@ -273,17 +285,17 @@
   /* Responsive */
   @media (max-width: 768px) {
     header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
     }
     header p.subtitle {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
     nav a {
-      margin: 0 12px;
+      margin: 0 14px;
       font-size: 1rem;
     }
     section h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
     .gallery-item img {
       height: 160px;
@@ -294,7 +306,7 @@
 
 <body>
 
-<nav>
+<nav aria-label="ページ内ナビゲーション">
   <a href="#concept">コンセプト</a>
   <a href="#features">特徴</a>
   <a href="#gallery">ギャラリー</a>
@@ -302,19 +314,22 @@
   <a href="#access">アクセス</a>
 </nav>
 
-<header>
+<header role="banner">
+  <!-- ここは動画をローカルに置くか、ネット上の動画URLを使ってください -->
+  <video autoplay muted loop playsinline preload="auto" aria-label="屋上サウナの動画背景" src="https://cdn.pixabay.com/vimeo/505541672/sauna-18286.mp4?width=1920&hash=84f3d47c19f3d1d33d9dff955d5a9429c33d8ac0"></video>
+
   <h1>屋上サウナ SORA</h1>
   <p class="subtitle">宮古島の屋上でプライベートな贅沢サウナ体験</p>
-  <p id="countdown">OPENまで: 読み込み中...</p>
+  <p id="countdown" aria-live="polite" aria-atomic="true">OPENまで: 読み込み中...</p>
 </header>
 
 <main>
-  <section id="concept" class="scroll-animation">
+  <section id="concept" class="scroll-animation" tabindex="0">
     <h2>コンセプト</h2>
     <p>宮古島初の大型屋上サウナ専門施設。4つの貸切ブースで、ゆったりと自然を感じながらととのう贅沢な時間を。</p>
   </section>
 
-  <section id="features" class="scroll-animation">
+  <section id="features" class="scroll-animation" tabindex="0">
     <h2>施設特徴</h2>
     <ul>
       <li>▶️ バレルサウナ4台（全て貸切制）</li>
@@ -323,7 +338,7 @@
     </ul>
   </section>
 
-  <section id="gallery" class="scroll-animation">
+  <section id="gallery" class="scroll-animation" tabindex="0">
     <h2>ギャラリー</h2>
     <div class="gallery">
       <div class="gallery-item" tabindex="0" role="button" aria-label="バレルサウナ画像拡大表示">
@@ -338,14 +353,10 @@
         <img src="https://images.unsplash.com/photo-1519821172142-3c496c1db574?auto=format&fit=crop&w=800&q=80" alt="ととのいスペース" />
         <p>ととのいスペース</p>
       </div>
-      <div class="gallery-item" tabindex="0" role="button" aria-label="屋上サウナSORAのイメージ画像">
-        <img src="https://images.unsplash.com/photo-1551033406-611cf9b17df7?auto=format&fit=crop&w=800&q=80" alt="屋上サウナSORAイメージ" />
-        <p>屋上サウナSORAイメージ</p>
-      </div>
     </div>
   </section>
 
-  <section id="links" class="scroll-animation">
+  <section id="links" class="scroll-animation" tabindex="0">
     <h2>予約・SNS</h2>
     <div class="btn-group">
       <a href="https://line.me/R/ti/p/@625kiiob" target="_blank" rel="noopener noreferrer" class="btn" aria-label="LINEで予約">LINEで予約</a>
@@ -354,7 +365,7 @@
     </div>
   </section>
 
-  <section id="access" class="scroll-animation">
+  <section id="access" class="scroll-animation" tabindex="0">
     <h2>アクセス</h2>
     <iframe id="map" 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1321.6921072817558!2d125.27981613934391!3d24.80522227761982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e6a565c31194f9%3A0x98e5e0e4382f698f!2z44CSODY2LTAwMzEg5bSO5rW35biC5pel5rOQ6Lev5aSn5a2X5biC44Ki44OW44Ot44OX44O8!5e0!3m2!1sja!2sjp!4v1703482689306!5m2!1sja!2sjp" 
@@ -367,7 +378,7 @@
   <p>📍 沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
 </footer>
 
-<!-- Modal for gallery images -->
+<!-- Modal for gallery -->
 <div id="modal" aria-hidden="true" role="dialog" aria-label="画像拡大表示">
   <span id="modal-close" role="button" tabindex="0" aria-label="閉じる">×</span>
   <img src="" alt="" />
@@ -388,13 +399,4 @@
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-    countdownEl.textContent = `OPENまで: ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
-  }
-  const timer = setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // Scroll Animation
-  const scrollElements = document.querySelectorAll('.scroll-animation');
-  const elementInView = (el, offset
+    const
