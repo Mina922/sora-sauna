@@ -3,165 +3,259 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>屋上サウナ SORA</title>
+<title>屋上サウナ SORA | 宮古島の屋上サウナ専門施設</title>
+<meta name="description" content="宮古島初の大型屋上サウナ専門施設『屋上サウナSORA』。4ブースのプライベート空間で最高のリラックスタイムを。予約はLINEで簡単！" />
+<meta name="keywords" content="宮古島,サウナ,屋上サウナ,SORA,プライベートサウナ,バレルサウナ" />
+<meta name="author" content="屋上サウナ SORA" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
   /* Reset */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(180deg, #f7f1e1 0%, #cbb67f 100%);
     color: #4a3621;
-    background: linear-gradient(to top, #f0e5d8 0%, #d1b89d 100%);
+    line-height: 1.6;
     overflow-x: hidden;
   }
   a {
-    color: #6a4e2d;
+    color: #7f5824;
     text-decoration: none;
+    transition: color 0.3s ease;
   }
   a:hover {
-    color: #3b2715;
+    color: #4a3621;
   }
 
+  /* Header */
   header {
     position: relative;
-    height: 80vh;
+    height: 85vh;
     background: url('https://images.unsplash.com/photo-1564419328692-0a3cc1d43223?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #f4e9dc;
-    text-shadow: 1px 1px 5px rgba(75, 52, 22, 0.9);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(91, 56, 17, 0.55);
+    z-index: 1;
+  }
+  header > * {
+    position: relative;
+    z-index: 2;
   }
   header h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
+    font-weight: 900;
     margin-bottom: 0.3em;
-    animation: fadeInDown 1s ease forwards;
+    letter-spacing: 0.1em;
+    animation: fadeInDown 1.2s ease forwards;
   }
   header p.subtitle {
     font-size: 1.8rem;
-    margin-bottom: 0.8em;
-    animation: fadeInUp 1s ease forwards;
+    font-weight: 600;
+    margin-bottom: 1em;
+    animation: fadeInUp 1.2s ease forwards;
     animation-delay: 0.5s;
   }
   #countdown {
-    font-size: 1.4rem;
-    background: rgba(75, 52, 22, 0.5);
-    padding: 10px 20px;
-    border-radius: 25px;
-    animation: fadeInUp 1s ease forwards;
+    font-size: 1.5rem;
+    background: rgba(124, 87, 30, 0.7);
+    padding: 15px 35px;
+    border-radius: 40px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    animation: fadeInUp 1.2s ease forwards;
     animation-delay: 1s;
   }
 
-  main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #d4b06acc;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   }
+  nav a {
+    margin: 0 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #4a3621;
+  }
+  nav a:hover {
+    color: #7f5824;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto 80px;
+    padding: 100px 20px 20px;
+  }
+
   section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
   section.visible {
     opacity: 1;
     transform: translateY(0);
   }
   section h2 {
-    font-size: 2.5rem;
-    color: #4a3621;
-    border-bottom: 3px solid #8b5e3c;
+    font-size: 2.8rem;
+    border-bottom: 4px solid #a57a32;
     padding-bottom: 10px;
     margin-bottom: 25px;
+    color: #5e3d1f;
+    font-weight: 900;
   }
   section p, section ul {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
     color: #5a4327;
   }
   section ul {
-    padding-left: 1.2em;
+    margin-left: 1.2em;
+    list-style-type: disc;
   }
   section ul li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
+  /* Buttons */
+  .btn-group {
+    margin-top: 10px;
+  }
   .btn {
     display: inline-block;
-    background-color: #8b5e3c;
+    background: linear-gradient(145deg, #7f5824, #a57a32);
     color: #f4e9dc;
-    padding: 12px 28px;
-    font-weight: bold;
-    border-radius: 30px;
-    margin-right: 15px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+    padding: 14px 36px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    border-radius: 40px;
+    box-shadow: 3px 3px 6px #6e4c13, -3px -3px 6px #b99747;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    border: none;
+    user-select: none;
   }
   .btn:hover {
-    background-color: #5e3d1f;
+    background: linear-gradient(145deg, #a57a32, #7f5824);
+    box-shadow: 1px 1px 12px #cdb961;
   }
 
-  /* ギャラリー */
+  /* Gallery */
   .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
   }
   .gallery-item {
-    flex: 1 1 250px;
-    border-radius: 10px;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 12px rgba(75, 52, 22, 0.3);
-    transition: transform 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(101, 72, 20, 0.3);
     cursor: pointer;
+    transition: transform 0.35s ease;
   }
   .gallery-item:hover {
     transform: scale(1.05);
+    z-index: 5;
   }
   .gallery-item img {
     width: 100%;
-    display: block;
+    height: 200px;
     object-fit: cover;
-    height: 180px;
+    display: block;
   }
   .gallery-item p {
-    padding: 10px;
-    font-weight: bold;
-    background: #f0e5d8;
-    text-align: center;
-    margin: 0;
-    color: #4a3621;
-  }
-
-  /* フッター */
-  footer {
-    background-color: #5e3d1f;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(127, 88, 36, 0.85);
     color: #f4e9dc;
-    padding: 30px 20px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 14px 20px;
     text-align: center;
-    font-size: 1rem;
-  }
-  footer p {
-    margin-bottom: 8px;
+    user-select: none;
   }
 
-  /* Google map */
+  /* Modal for gallery */
+  #modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  #modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+  #modal.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Access Section */
   #map {
     width: 100%;
-    height: 300px;
-    border-radius: 12px;
-    box-shadow: 0 5px 12px rgba(75, 52, 22, 0.3);
+    height: 350px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(101, 72, 20, 0.4);
+    margin-top: 15px;
+  }
+
+  /* Footer */
+  footer {
+    background: #7f5824;
+    color: #f4e9dc;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    user-select: none;
+  }
+  footer p {
+    margin-bottom: 10px;
   }
 
   /* Animations */
   @keyframes fadeInDown {
     0% {
-      opacity: 0; transform: translateY(-20px);
+      opacity: 0; transform: translateY(-30px);
     }
     100% {
       opacity: 1; transform: translateY(0);
@@ -169,7 +263,7 @@
   }
   @keyframes fadeInUp {
     0% {
-      opacity: 0; transform: translateY(20px);
+      opacity: 0; transform: translateY(30px);
     }
     100% {
       opacity: 1; transform: translateY(0);
@@ -177,74 +271,94 @@
   }
 
   /* Responsive */
-  @media(max-width: 600px) {
+  @media (max-width: 768px) {
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     header p.subtitle {
       font-size: 1.2rem;
     }
+    nav a {
+      margin: 0 12px;
+      font-size: 1rem;
+    }
     section h2 {
       font-size: 2rem;
     }
+    .gallery-item img {
+      height: 160px;
+    }
   }
 </style>
-
 </head>
+
 <body>
+
+<nav>
+  <a href="#concept">コンセプト</a>
+  <a href="#features">特徴</a>
+  <a href="#gallery">ギャラリー</a>
+  <a href="#links">予約・SNS</a>
+  <a href="#access">アクセス</a>
+</nav>
 
 <header>
   <h1>屋上サウナ SORA</h1>
-  <p class="subtitle">空に近い屋上で、4ブースのプライベートサウナ体験</p>
+  <p class="subtitle">宮古島の屋上でプライベートな贅沢サウナ体験</p>
   <p id="countdown">OPENまで: 読み込み中...</p>
 </header>
 
 <main>
   <section id="concept" class="scroll-animation">
     <h2>コンセプト</h2>
-    <p>宮古島初の大型サウナ専門施設。バレルサウナ4台設置、全て貸切のプライベート空間。水風呂・シャワー・更衣室完備でリラックスも完璧。</p>
+    <p>宮古島初の大型屋上サウナ専門施設。4つの貸切ブースで、ゆったりと自然を感じながらととのう贅沢な時間を。</p>
   </section>
 
   <section id="features" class="scroll-animation">
     <h2>施設特徴</h2>
     <ul>
-      <li>▶️ バレルサウナ4台（全4ブース、貸切制）</li>
-      <li>▶️ 水風呂・シャワー・更衣室あり</li>
-      <li>▶️ 宮古島の青空を一望しながらととのう体験</li>
+      <li>▶️ バレルサウナ4台（全て貸切制）</li>
+      <li>▶️ 水風呂・シャワー・更衣室完備</li>
+      <li>▶️ 宮古島の空と風を感じる開放的な屋上空間</li>
     </ul>
-  </section>
-
-  <section id="links" class="scroll-animation">
-    <h2>予約・SNS</h2>
-    <a href="https://line.me/R/ti/p/@625kiiob" class="btn" target="_blank" rel="noopener noreferrer">LINEで予約</a>
-    <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" class="btn" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <br />
-    <a href="料金表URLをここに" class="btn" target="_blank" rel="noopener noreferrer">料金表を見る</a>
   </section>
 
   <section id="gallery" class="scroll-animation">
     <h2>ギャラリー</h2>
     <div class="gallery">
-      <div class="gallery-item" title="バレルサウナ">
+      <div class="gallery-item" tabindex="0" role="button" aria-label="バレルサウナ画像拡大表示">
         <img src="https://images.unsplash.com/photo-1590080877777-335a81dfe0c1?auto=format&fit=crop&w=800&q=80" alt="バレルサウナ" />
         <p>バレルサウナ</p>
       </div>
-      <div class="gallery-item" title="水風呂">
+      <div class="gallery-item" tabindex="0" role="button" aria-label="水風呂画像拡大表示">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="水風呂" />
         <p>水風呂</p>
       </div>
-      <div class="gallery-item" title="ととのいスペース">
+      <div class="gallery-item" tabindex="0" role="button" aria-label="ととのいスペース画像拡大表示">
         <img src="https://images.unsplash.com/photo-1519821172142-3c496c1db574?auto=format&fit=crop&w=800&q=80" alt="ととのいスペース" />
         <p>ととのいスペース</p>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-label="屋上サウナSORAのイメージ画像">
+        <img src="https://images.unsplash.com/photo-1551033406-611cf9b17df7?auto=format&fit=crop&w=800&q=80" alt="屋上サウナSORAイメージ" />
+        <p>屋上サウナSORAイメージ</p>
       </div>
     </div>
   </section>
 
-  <section id="location" class="scroll-animation">
+  <section id="links" class="scroll-animation">
+    <h2>予約・SNS</h2>
+    <div class="btn-group">
+      <a href="https://line.me/R/ti/p/@625kiiob" target="_blank" rel="noopener noreferrer" class="btn" aria-label="LINEで予約">LINEで予約</a>
+      <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Instagramへ">Instagram</a>
+      <a href="料金表URLをここに" target="_blank" rel="noopener noreferrer" class="btn" aria-label="料金表を見る">料金表を見る</a>
+    </div>
+  </section>
+
+  <section id="access" class="scroll-animation">
     <h2>アクセス</h2>
     <iframe id="map" 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1321.6921072817558!2d125.27981613934391!3d24.80522227761982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e6a565c31194f9%3A0x98e5e0e4382f698f!2z44CSODY2LTAwMzEg5bSO5rW35biC5pel5rOQ6Lev5aSn5a2X5biC44Ki44OW44Ot44OX44O8!5e0!3m2!1sja!2sjp!4v1703482689306!5m2!1sja!2sjp" 
-      style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="屋上サウナSORAのGoogleマップ"></iframe>
   </section>
 </main>
 
@@ -253,15 +367,21 @@
   <p>📍 沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
 </footer>
 
+<!-- Modal for gallery images -->
+<div id="modal" aria-hidden="true" role="dialog" aria-label="画像拡大表示">
+  <span id="modal-close" role="button" tabindex="0" aria-label="閉じる">×</span>
+  <img src="" alt="" />
+</div>
+
 <script>
-  // Countdown script
+  // Countdown Timer
   const countdownEl = document.getElementById('countdown');
   const openDate = new Date("2026-02-12T10:00:00").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
     const diff = openDate - now;
-    if(diff <= 0){
+    if (diff <= 0) {
       countdownEl.textContent = "オープンしました！";
       clearInterval(timer);
       return;
@@ -272,37 +392,9 @@
     const seconds = Math.floor((diff / 1000) % 60);
     countdownEl.textContent = `OPENまで: ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
   }
-
   const timer = setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Scroll animation trigger
+  // Scroll Animation
   const scrollElements = document.querySelectorAll('.scroll-animation');
-  const elementInView = (el, offset = 150) => {
-    const elementTop = el.getBoundingClientRect().top;
-    return elementTop <= (window.innerHeight - offset);
-  };
-  const displayScrollElement = (element) => {
-    element.classList.add('visible');
-  };
-  const hideScrollElement = (element) => {
-    element.classList.remove('visible');
-  };
-  const handleScrollAnimation = () => {
-    scrollElements.forEach(el => {
-      if (elementInView(el, 150)) {
-        displayScrollElement(el);
-      } else {
-        hideScrollElement(el);
-      }
-    });
-  };
-  window.addEventListener('scroll', () => {
-    handleScrollAnimation();
-  });
-  // Initial check
-  handleScrollAnimation();
-</script>
-
-</body>
-</html>
+  const elementInView = (el, offset
