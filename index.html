@@ -1,402 +1,468 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>屋上サウナ SORA | 宮古島のプライベート屋上サウナ</title>
-<meta name="description" content="宮古島の屋上にある貸切サウナ施設。4ブースのプライベート空間でゆったりと自然を感じながらととのう贅沢体験を。" />
-<meta name="keywords" content="宮古島,サウナ,屋上サウナ,SORA,バレルサウナ,プライベートサウナ" />
-<meta name="author" content="屋上サウナ SORA" />
+  <meta charset="UTF-8" />
+  <title>屋上サウナ SORA｜宮古島</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
-
-<style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: linear-gradient(180deg, #f7f1e1 0%, #cbb67f 100%);
-    color: #4a3621;
-    overflow-x: hidden;
-  }
-  a {
-    color: #7f5824;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #4a3621;
-  }
-
-  /* Header & video bg */
-  header {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #f4e9dc;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-  }
-  header video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(0.5);
-  }
-  header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(91, 56, 17, 0.55);
-    z-index: 1;
-  }
-  header > * {
-    position: relative;
-    z-index: 2;
-  }
-  header h1 {
-    font-size: 5rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.3em;
-    animation: fadeInDown 1.2s ease forwards;
-  }
-  header p.subtitle {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1em;
-    animation: fadeInUp 1.2s ease forwards;
-    animation-delay: 0.5s;
-  }
-  #countdown {
-    font-size: 1.8rem;
-    background: rgba(124, 87, 30, 0.75);
-    padding: 16px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    animation: fadeInUp 1.2s ease forwards;
-    animation-delay: 1s;
-  }
-
-  /* Navigation */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: #d4b06acc;
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    padding: 12px 0;
-    z-index: 10;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-  }
-  nav a {
-    margin: 0 24px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #4a3621;
-  }
-  nav a:hover {
-    color: #7f5824;
-  }
-
-  main {
-    max-width: 960px;
-    margin: 0 auto 120px;
-    padding: 110px 20px 20px;
-  }
-
-  section {
-    margin-bottom: 90px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
-  section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  section h2 {
-    font-size: 2.8rem;
-    border-bottom: 5px solid #a57a32;
-    padding-bottom: 12px;
-    margin-bottom: 30px;
-    color: #5e3d1f;
-    font-weight: 900;
-  }
-  section p, section ul {
-    font-size: 1.25rem;
-    color: #5a4327;
-  }
-  section ul {
-    margin-left: 1.3em;
-    list-style-type: disc;
-  }
-  section ul li {
-    margin-bottom: 14px;
-  }
-
-  /* Buttons */
-  .btn-group {
-    margin-top: 15px;
-  }
-  .btn {
-    display: inline-block;
-    background: linear-gradient(145deg, #7f5824, #a57a32);
-    color: #f4e9dc;
-    padding: 16px 42px;
-    font-weight: 900;
-    font-size: 1.3rem;
-    border-radius: 50px;
-    box-shadow: 3px 3px 9px #6e4c13, -3px -3px 9px #b99747;
-    margin-right: 24px;
-    cursor: pointer;
-    transition: background 0.4s ease, box-shadow 0.4s ease;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
-    border: none;
-    user-select: none;
-  }
-  .btn:hover {
-    background: linear-gradient(145deg, #a57a32, #7f5824);
-    box-shadow: 1px 1px 15px #cdb961;
-  }
-
-  /* Gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 28px;
-  }
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 6px 18px rgba(101, 72, 20, 0.35);
-    cursor: pointer;
-    transition: transform 0.4s ease;
-  }
-  .gallery-item:hover {
-    transform: scale(1.07);
-    z-index: 5;
-  }
-  .gallery-item img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-  }
-  .gallery-item p {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(127, 88, 36, 0.88);
-    color: #f4e9dc;
-    font-weight: 800;
-    font-size: 1.3rem;
-    padding: 16px 22px;
-    text-align: center;
-    user-select: none;
-  }
-
-  /* Modal for gallery */
-  #modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 60;
-  }
-  #modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.4);
-  }
-  #modal-close {
-    position: absolute;
-    top: 18px;
-    right: 26px;
-    font-size: 2.8rem;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  /* Access Section */
-  #map {
-    width: 100%;
-    height: 400px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(101, 72, 20, 0.45);
-    margin-top: 22px;
-  }
-
-  /* Footer */
-  footer {
-    background: #7f5824;
-    color: #f4e9dc;
-    text-align: center;
-    padding: 48px 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    user-select: none;
-  }
-  footer p {
-    margin-bottom: 14px;
-  }
-
-  /* Animations */
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0; transform: translateY(-30px);
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
+      color: #2c2c2c;
+      background: linear-gradient(to bottom, #eaf6ff, #ffffff);
     }
-    100% {
-      opacity: 1; transform: translateY(0);
-    }
-  }
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0; transform: translateY(30px);
-    }
-    100% {
-      opacity: 1; transform: translateY(0);
-    }
-  }
 
-  /* Responsive */
-  @media (max-width: 768px) {
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      flex-direction: column;
+    }
+
+    .bg-image {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: -1;
+      filter: brightness(0.9);
+    }
+
+    .bg-image.active {
+      opacity: 1;
+    }
+
     header h1 {
-      font-size: 3.2rem;
+      font-size: 2.4rem;
+      letter-spacing: 0.2em;
+      font-weight: 300;
+      position: relative;
+      z-index: 10;
+      color: #333;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      margin-bottom: 0.3em;
     }
-    header p.subtitle {
-      font-size: 1.4rem;
-    }
-    nav a {
-      margin: 0 14px;
+
+    header p {
+      margin-top: 16px;
       font-size: 1rem;
+      letter-spacing: 0.15em;
+      line-height: 1.8;
+      transition: opacity 1s ease;
+      position: relative;
+      z-index: 10;
+      color: #444;
+      text-shadow: 0 0 6px rgba(255,255,255,0.7);
+      margin-bottom: 1.5em;
     }
-    section h2 {
-      font-size: 2.2rem;
+
+    #countdown {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      position: relative;
+      z-index: 10;
+      color: #555;
+      text-shadow: 0 0 4px rgba(255,255,255,0.6);
+      margin-bottom: 2em;
     }
-    .gallery-item img {
-      height: 160px;
+
+    .button-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
     }
-  }
-</style>
+
+    .button-container a {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .button-container a:hover {
+      background-color: white;
+      color: #0077cc;
+    }
+
+    section {
+      padding: 60px 8%;
+    }
+
+    h2 {
+      text-align: center;
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    #facilities {
+      background-color: #f8f9fa;
+      color: #2c2c2c;
+    }
+
+    #facilities h2 {
+      text-align: center;
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .facility-slider {
+      max-width: 650px;
+      margin: 0 auto 60px;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .facility-slide {
+      display: none;
+      text-align: center;
+      transition: opacity 0.8s ease;
+    }
+
+    .facility-slide.active {
+      display: block;
+    }
+
+    .facility-slide img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .facility-slide h3 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #0077cc;
+      margin-bottom: 10px;
+    }
+
+    .facility-slide p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      padding: 0 10px;
+    }
+
+    /* 矢印ボタン */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 20;
+    }
+    .slider-arrow:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    .slider-arrow.left {
+      left: 10px;
+    }
+    .slider-arrow.right {
+      right: 10px;
+    }
+
+    /* 矢印アイコン（三角） */
+    .slider-arrow svg {
+      fill: #0077cc;
+      width: 18px;
+      height: 18px;
+    }
+  </style>
 </head>
 
 <body>
 
-<nav aria-label="ページ内ナビゲーション">
-  <a href="#concept">コンセプト</a>
-  <a href="#features">特徴</a>
-  <a href="#gallery">ギャラリー</a>
-  <a href="#links">予約・SNS</a>
-  <a href="#access">アクセス</a>
-</nav>
+<header id="hero">
+  <div id="bg1" class="bg-image"></div>
+  <div id="bg2" class="bg-image"></div>
 
-<header role="banner">
-  <!-- ここは動画をローカルに置くか、ネット上の動画URLを使ってください -->
-  <video autoplay muted loop playsinline preload="auto" aria-label="屋上サウナの動画背景" src="https://cdn.pixabay.com/vimeo/505541672/sauna-18286.mp4?width=1920&hash=84f3d47c19f3d1d33d9dff955d5a9429c33d8ac0"></video>
+  <div>
+    <h1>屋上サウナ SORA</h1>
+    <p id="hero-text"></p>
+    <div id="countdown"></div>
+  </div>
 
-  <h1>屋上サウナ SORA</h1>
-  <p class="subtitle">宮古島の屋上でプライベートな贅沢サウナ体験</p>
-  <p id="countdown" aria-live="polite" aria-atomic="true">OPENまで: 読み込み中...</p>
+  <div class="button-container">
+    <a href="https://liff.line.me/2008703548-6DMj5Piw/salon/dateselector/week/2025/12/25?liff_id=2008703548-6DMj5Piw&is=JRfcLrK0JC" target="_blank" rel="noopener noreferrer">予約ページ</a>
+    <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
 </header>
 
-<main>
-  <section id="concept" class="scroll-animation" tabindex="0">
-    <h2>コンセプト</h2>
-    <p>宮古島初の大型屋上サウナ専門施設。4つの貸切ブースで、ゆったりと自然を感じながらととのう贅沢な時間を。</p>
-  </section>
+<section id="concept">
+  <h2>CONCEPT</h2>
+  <p style="text-align:center; line-height:2; color:#555; font-style: italic;">
+    静かな屋上に、穏やかな風がそっと触れる。<br>
+    時はゆっくりと流れ、空は静かに色を変えていく。<br><br>
+    心のざわめきは遠くへ消え、身体は深い安らぎに包まれる。<br>
+    光と影が織りなす静寂の中で、<br>
+    ただひとつの「ととのい」を感じる時間。<br><br>
+    ここは日常を離れ、<br>
+    内なる声に耳を澄ます場所。<br><br>
+    空と風と共に、<br>
+    深い静けさと温もりが、あなたをそっと迎える。<br><br>
+    屋上サウナ SORA。<br>
+    穏やかな心と身体が、ここでひとつになる。
+  </p>
+</section>
 
-  <section id="features" class="scroll-animation" tabindex="0">
-    <h2>施設特徴</h2>
-    <ul>
-      <li>▶️ バレルサウナ4台（全て貸切制）</li>
-      <li>▶️ 水風呂・シャワー・更衣室完備</li>
-      <li>▶️ 宮古島の空と風を感じる開放的な屋上空間</li>
-    </ul>
-  </section>
 
-  <section id="gallery" class="scroll-animation" tabindex="0">
-    <h2>ギャラリー</h2>
-    <div class="gallery">
-      <div class="gallery-item" tabindex="0" role="button" aria-label="バレルサウナ画像拡大表示">
-        <img src="https://images.unsplash.com/photo-1590080877777-335a81dfe0c1?auto=format&fit=crop&w=800&q=80" alt="バレルサウナ" />
-        <p>バレルサウナ</p>
-      </div>
-      <div class="gallery-item" tabindex="0" role="button" aria-label="水風呂画像拡大表示">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="水風呂" />
-        <p>水風呂</p>
-      </div>
-      <div class="gallery-item" tabindex="0" role="button" aria-label="ととのいスペース画像拡大表示">
-        <img src="https://images.unsplash.com/photo-1519821172142-3c496c1db574?auto=format&fit=crop&w=800&q=80" alt="ととのいスペース" />
-        <p>ととのいスペース</p>
-      </div>
+<section id="facilities">
+  <h2>FACILITY</h2>
+
+  <div class="facility-slider">
+    <div class="facility-slide active">
+      <img src="https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG5uXSWWU44pdkgV65L9FZlHqBhelvC5siSgbpi_DB1bhCMdORTqbrk8e-ZMhpwBf3Hji5FqNkvLFk6xxWmLB0yI8Dqv6BcY__ipuU9vca6PLXVkcpP9QwemWhRhCeuEu-GhOPlvbjxAe-g_GQ_t4p8wqjm9X3p3tfyokDh8RhlLAOrFd2niKoNYE7LdNZZH8hBXV95veqByMyaIhaLUSY14yfqS7NVQuTf2Ve85oIEWC9R9vtTUXR1rF4SVJ-bSqLBdax4zVgpKZja2OKmqvNHc=/barrel.png?errorImage=false" alt="サウナ">
+      <h3>バレルサウナ</h3>
+      <p>最大110度。最高級レッドシダー材のバレルサウナ。自然素材の香りと心地よい熱が特徴です。</p>
     </div>
-  </section>
-
-  <section id="links" class="scroll-animation" tabindex="0">
-    <h2>予約・SNS</h2>
-    <div class="btn-group">
-      <a href="https://line.me/R/ti/p/@625kiiob" target="_blank" rel="noopener noreferrer" class="btn" aria-label="LINEで予約">LINEで予約</a>
-      <a href="https://www.instagram.com/sora.sauna?igsh=NGZna3c0dDdjazE5" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Instagramへ">Instagram</a>
-      <a href="料金表URLをここに" target="_blank" rel="noopener noreferrer" class="btn" aria-label="料金表を見る">料金表を見る</a>
+    <div class="facility-slide">
+      <img src="https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG5afIa4pC_zDpfdepmoW7iSZI5JjPyEJWXqQnQtKM2cHB_3uDL8g7oO-IvYGr4NV3yoZexbCKPnMYXafrH5Y5Mw0Ya-SyWMrJUQhk6cxOnNXaE4-W9uPEB76D8ZD-3inzF-sHusKRdKan5PSi0q7x5gP-exZ-24UX98A_XultMjYAhEGj6CIUEFt-2-RJo1eIzJzVFTZLOUfH5TQJRsYSnTN4y9i9JQZ3cklEnNOWpLV/souk-waterbath_08.jpg?errorImage=false" alt="水風呂">
+      <h3>水風呂</h3>
+      <p>清潔で冷たく爽快な水風呂。温度調節はお客様のお好みで。</p>
     </div>
-  </section>
+    <div class="facility-slide">
+      <img src="https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqGyyFDosvLNTz4EQYnMyl8WLObjbZrQ6hngvgPeIh6A617oa0dhdGsy5BR7sOY_wWYq4xcpT20a0JdhnRwJSY-lESYVy3HubQ0oEtKzSk1RhjkW30yybb01x0wrLF_qTJDhYrbe18FzKVSBYE44dXL5o0QyAaSinB7C-J0wDcP4Z8xaBfavoGKwaPQB7NG8rmEJzxBz4vr-QEOSE4SCzfPqA=/commonsp?errorImage=false" alt="シャワー">
+      <h3>シャワー</h3>
+      <p>シャワー完備。しっかりと汗を流して水風呂を楽しめます。。</p>
+    </div>
+    <div class="facility-slide">
+      <img src="https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG1YfHDoq6bKpfOed4CmrTfKdW26Xvio5T9GKz-HJhvtJEGV-MEa_fpVkwKVvGOQz74GSrTQP7YGMDw20YJmsowzWGW7nC7YwB3dnKXWT-Q5eSoVbc6CwxduaO9s7NFVOFaiy79y-eh17eDLr5KjrYnttBE4JPe0HQBPjj-PRGEbTIAWQmXrf3Wahm-C2SIlxl8d-XELZ-xlblhI6zHpV2tCr_4l6fPNtNoKDbUq4N0vtgxzJj0sVn0lpCzj-5YU9pg==/img_90618e0341e86cce699edfc8603e3335285720.jpg?errorImage=false" alt="ととのいスペース">
+      <h3>ととのいスペース</h3>
+      <p>屋上の風を感じながら、ゆったりと休めるスペース。心と身体を整える特等席です。</p>
+    </div>
 
-  <section id="access" class="scroll-animation" tabindex="0">
-    <h2>アクセス</h2>
-    <iframe id="map" 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1321.6921072817558!2d125.27981613934391!3d24.80522227761982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e6a565c31194f9%3A0x98e5e0e4382f698f!2z44CSODY2LTAwMzEg5bSO5rW35biC5pel5rOQ6Lev5aSn5a2X5biC44Ki44OW44Ot44OX44O8!5e0!3m2!1sja!2sjp!4v1703482689306!5m2!1sja!2sjp" 
-      style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="屋上サウナSORAのGoogleマップ"></iframe>
-  </section>
-</main>
-
-<footer>
-  <p>📞 080-4364-7533</p>
-  <p>📍 沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
-</footer>
-
-<!-- Modal for gallery -->
-<div id="modal" aria-hidden="true" role="dialog" aria-label="画像拡大表示">
-  <span id="modal-close" role="button" tabindex="0" aria-label="閉じる">×</span>
-  <img src="" alt="" />
-</div>
+    <div class="slider-arrow left" id="prev-arrow" tabindex="0" role="button" aria-label="前の施設へ">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </div>
+    <div class="slider-arrow right" id="next-arrow" tabindex="0" role="button" aria-label="次の施設へ">
+      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </div>
+  </div>
+</section>
 
 <script>
-  // Countdown Timer
-  const countdownEl = document.getElementById('countdown');
-  const openDate = new Date("2026-02-12T10:00:00").getTime();
+const targetDate = new Date("2026-02-12T00:00:00");
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = openDate - now;
-    if (diff <= 0) {
-      countdownEl.textContent = "オープンしました！";
-      clearInterval(timer);
-      return;
+const scenes = [
+  {
+    bg: "https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG7pjnghsbNwPM-M929xoyUUEXc1KolwD5958QQNaQM098xPhvOOa8YokQ0h9FkFsJoznRNudsCPpJRb_cjpPKCrhdnV_RweWc1u8j3NwF6dJfGKKy6CpsFQm755L_HyespAAJLBioi5b43d5j3OiduGsBS33TU9__i7pfMf0QE98frHW7s8TeEWPW1CX056crQ==/barrel.jpg?errorImage=false",
+    copy: {
+      early: "澄んだ空の下、<br>一日のはじまりに、ととのう",
+      middle: "光に包まれながら、<br>心と身体を整える時間",
+      late: "空と風を感じる、<br>ととのいの入口へ"
     }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const
+  },
+  {
+    bg: "https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqGx4iZdijYlaT1AjkMzMgbK7G2eS9ra12f_cClqxFaU7shZycI-64htht5oC3Scrsi1QB5cNRwJKh37IA71oyi_nRxbpjwy2geTuWXMBOJw6mHwIgdkxivHCYE5_NzSQZH-ohwFzlkFLedtxj_GfMLCZstlrFLMPHu2L-vkic7F3KIIH4Xk91Wb0EF1JUqe16J-R6V9y5h-KU50y_cvhYcP_2AVFfnChfovfv2lggis43A0Ym_wHY8OIgWr5i64YaUXGSGMAyMesYgXGKOsa4I6_zE-G845rxiiRDSH0WQWwmm066xuDqLS4IM7nVOodrLRBvU9K5IEwo6Op3YVOtGaet-E85jIgA_b3cumFWJ63U/20240510_Steamers63.jpg?errorImage=false",
+    copy: {
+      early: "夕焼けに染まる空、<br>まだ先の、ととのいを想う",
+      middle: "日常から、非日常へ。<br>空が切り替わる、その瞬間",
+      late: "夕空とともに、<br>ととのいは、もうすぐ"
+    }
+  },
+  {
+    bg: "https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG8Qq8yJgiVf-hxPhJrOt7JrOsduZNsBANZgAOJsFKMhukAAksGKiLlvjd3mPc6J24Whm_84aPrS5ANxTHjMKxvHUROgWrnKtVu6agUU58zRhjQmc694Le0Gk4_uV_4BajeizaDt_-1abZYRyQ0vFvl1zaBED9GE8OWAltorjxM0pH_R0USnPUM2y0yOmTBCxk8Ls7NendnwF2iy2gsSqDJhGjg6uhPr9lDM32bFyVCevA7h2WnMIjdKdxXdwYR6dZp_qmBPCsBCvc9ghf3yK3TmQKX73vbfdda6Weo45VVWHNlhwGdiOTjmaa7HCZIiE57rmOidnPL6LwfcWUnhKDH0b0r8uVLS_4_B-pmi_vnNmRG5I645EXcMEJSQt_o5TBfHLx7hsH0wpHh-Ty9KhInvQGYzV2vjeN3Q92K6oFOb0r9QUneVlgLmlACQLXUGhvR-Xq7O3OfGfApmeYSKur2ah4nqRIbDHvVRsy_tqnAlP_g878gvKSdug4KVp_3fDAMM4jTncOop6B7nkX8B_SHD17psEK1rhHqvi3-HSHOgmIN4lNslAOeynM8g1kyzJAZRoqu-snnGQsUJ6wYH-A-v0BQy-aM3_WsUVkUVm1lAv7uEmGwu0fJlzpC4E5NBaW8JXFsiS5ODZBgc28tP8X_0PqOc5p5pfzkfm5uv8IYDuGFPtbsx47aHYgh6XbzJ37lYgY0zUEJv1Ky4pRJpmkI25gAgjxXKBchfIquEmqRxIr9QUneVlgLmlACQLXUGhvRGNWMS3-b601kUsYBYGbzjqejhwUcKmtSBGtjoiZWOonHw4YwBISg0VzsLm_j1NroJLkMOtKd0pgTVIWKnBAkcmQQ8tuuREsrZwO8aRgnKel2lrrdvoxPeE_GjlX9VvD9ZTp16H7iMfDz1Hn-FQjg7cSq1Rm_NKvkdPG7_WjtJzHD0zW_APbYzddImDHIK3K8HhaAmM-A5yvg0B13nqcKcLkHthcgHrd2LLgRc-MWccDT2oi4HSlDmbf1gw1JBsWVRslxcp8ZmcLQLXOLmVx-x-lDCtYq80rZ7Hwpzmzj4x/E38090E383AAE382BDE38299E3838AE383BCE383ACE5B08FE6B59CE5B3B6E38091E38386E382A3E383B3E382ABE38299E383BCE383A9E382B5E382A6E3838A.jpg?errorImage=false",
+    copy: {
+      early: "星と夜風に包まれる、<br>未来のととのい時間",
+      middle: "静かな夜に、<br>期待がゆっくり満ちていく",
+      late: "深い夜の屋上で、<br>ととのいは、まもなく"
+    }
+  }
+];
+
+let index = 0;
+const bg1 = document.getElementById("bg1");
+const bg2 = document.getElementById("bg2");
+const heroText = document.getElementById("hero-text");
+
+function updateHero() {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  let phase = "early";
+  if (diff <= 0) {
+    document.getElementById("countdown").textContent = "OPEN NOW";
+    heroText.innerHTML = "空に近い場所で、<br>ととのう時間が、はじまる";
+    bg1.style.backgroundImage = '';
+    bg2.style.backgroundImage = '';
+    bg1.classList.remove("active");
+    bg2.classList.remove("active");
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").textContent = `OPENまで ${days}日`;
+
+  if (days <= 30) phase = "late";
+  else if (days <= 90) phase = "middle";
+
+  const scene = scenes[index];
+  const nextIndex = (index + 1) % scenes.length;
+
+  if (bg1.classList.contains("active")) {
+    bg2.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.95)), url("${scene.bg}")`;
+    bg2.classList.add("active");
+    bg1.classList.remove("active");
+  } else {
+    bg1.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.95)), url("${scene.bg}")`;
+    bg1.classList.add("active");
+    bg2.classList.remove("active");
+  }
+
+  heroText.style.opacity = 0;
+  setTimeout(() => {
+    heroText.innerHTML = scene.copy[phase];
+    heroText.style.opacity = 1;
+  }, 800);
+
+  index = nextIndex;
+}
+
+updateHero();
+setInterval(updateHero, 4000);
+
+
+// 施設紹介スライドショー
+
+const slides = document.querySelectorAll('.facility-slide');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// 自動切替
+let slideInterval = setInterval(nextSlide, 3000);
+
+// 矢印クリックイベント
+document.getElementById('next-arrow').addEventListener('click', () => {
+  nextSlide();
+  resetInterval();
+});
+
+document.getElementById('prev-arrow').addEventListener('click', () => {
+  prevSlide();
+  resetInterval();
+});
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, 3000);
+}
+</script>
+
+<section id="pricing" style="padding: 60px 8%; background: #f9fbfd; color: #333;">
+  <h2 style="text-align:center; letter-spacing: 0.2em; margin-bottom: 40px; font-weight: 400;">PRICE & DRINK MENU</h2>
+
+  <div style="max-width: 600px; margin: 0 auto;">
+
+    <h3 style="margin-bottom: 16px; border-bottom: 2px solid #0077cc; padding-bottom: 8px;">ご利用料金</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
+      <tbody>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 12px 8px;">1時間</td>
+          <td style="padding: 12px 8px; text-align: right;">2,000円</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 12px 8px;">2時間</td>
+          <td style="padding: 12px 8px; text-align: right;">3,000円</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 12px 8px;">3時間</td>
+          <td style="padding: 12px 8px; text-align: right;">4,000円</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-bottom: 16px; border-bottom: 2px solid #0077cc; padding-bottom: 8px;">ドリンクメニュー</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tbody>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 12px 8px;">ソフトドリンク</td>
+          <td style="padding: 12px 8px; text-align: right;">300円</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 12px 8px;">オリオンビール</td>
+          <td style="padding: 12px 8px; text-align: right;">500円</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<!-- 施設紹介セクションの下にGoogleマップを追加 -->
+<section id="access" style="padding: 40px 8%; background: #f0f4f8;">
+  <h2>ACCESS</h2>
+  <div style="max-width: 700px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3482.9401900208623!2d125.27984211517144!3d24.80551798411191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34efab1e7e7f9a29%3A0xe1a08f5d6b07aa0f!2z44CSOTE3LTAwMDAg5paw5rW36KeS5rW35bmz5Yy66YO95rGf6ZyA44Oq44O844OJ44O844Or44OD44OI44OD44OI!5e0!3m2!1sja!2sjp!4v1703570400000!5m2!1sja!2sjp"
+      width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="屋上サウナ SORA 宮古島 地図"></iframe>
+  </div>
+</section>
+
+<!-- フッターに住所と電話番号を追加 -->
+<footer style="background:#222; color:#eee; padding: 40px 8%; font-size: 0.9rem; text-align: center; letter-spacing: 0.1em;">
+  <p>沖縄県宮古島市平良西里251-1 Dライフビル6階</p>
+  <p>TEL: <a href="tel:08043647533" style="color:#eee; text-decoration:none;">080-4364-7533</a></p>
+  <p>© 屋上サウナ SORA｜2026.2.12 OPEN</p>
+</footer>
+
+</body>
+</html>
